@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.Logo {
+  height: 30px;
+}
+
+.Icon {
+  min-width: 50px;
+}

@@ -6,7 +6,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import Header from "../../components/Header/Header";
 
-class FoodGuide extends Component {
+export class FoodGuide extends Component {
   state = {
     categories: [],
     foods: []

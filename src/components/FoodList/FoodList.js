@@ -1,34 +1,16 @@
 import React, { Component } from "react";
 import { List, Avatar, Tag } from "antd";
-import axios from "axios";
 import { connect } from "react-redux";
 import "./FoodList.css";
-import * as actionTypes from "../../../store/actions";
+import * as actionTypes from "../../store/actions";
 
 class FoodList extends Component {
-  state = {
-    foods: []
-  };
-
   handleSelectFood = food => {
     console.log(food);
   };
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    axios
-      .get("/foods.json")
-      .then(response => {
-        const foods = [];
-        const categoryId = this.props.categoryId;
-        for (let key in response.data[categoryId]) {
-          foods.push(response.data[categoryId][key]);
-        }
-        this.setState({ foods: foods });
-      })
-      .catch(error => {
-        console.log(error);
-      });
   }
 
   getTag(type) {
@@ -55,7 +37,9 @@ class FoodList extends Component {
         <h3>{this.props.categoryName}</h3>
         <List
           itemLayout="horizontal"
-          dataSource={this.state.foods.filter(food => food.active)}
+          dataSource={this.props.foods[this.props.categoryId].filter(
+            food => food.active
+          )}
           renderItem={item => {
             const list = (
               <List.Item onClick={() => this.handleSelectFood(item)}>

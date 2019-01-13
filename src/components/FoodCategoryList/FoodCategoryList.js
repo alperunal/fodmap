@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { List, Avatar } from "antd";
-import * as actionTypes from "../../../store/actions";
+import * as actionTypes from "../../store/actions";
 import { connect } from "react-redux";
 import "./FoodCategoryList.css";
 

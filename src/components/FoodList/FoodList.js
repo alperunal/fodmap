@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { List, Avatar, Tag } from "antd";
 import { connect } from "react-redux";
 import "./FoodList.css";
@@ -80,3 +81,8 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(FoodList);
+
+FoodList.propTypes = {
+  categoryName: PropTypes.string,
+  foods: PropTypes.array
+};

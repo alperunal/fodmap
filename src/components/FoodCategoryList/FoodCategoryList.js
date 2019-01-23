@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { List, Avatar } from "antd";
 import * as actionTypes from "../../store/actions";
 import { connect } from "react-redux";
 import "./FoodCategoryList.css";
 
-class foodCategoryList extends Component {
+class FoodCategoryList extends Component {
   handleSelectCategory = category => {
     this.props.onSelectCategory(category.id, category.title);
   };
@@ -47,4 +48,8 @@ export const mapDispatchToProps = dispatch => {
 export default connect(
   null,
   mapDispatchToProps
-)(foodCategoryList);
+)(FoodCategoryList);
+
+FoodCategoryList.propTypes = {
+  categories: PropTypes.array
+};
